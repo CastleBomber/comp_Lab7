@@ -94,10 +94,11 @@ int main(){
    printf("SPI Mode is: %d\n", mode);
    printf("Time's last digit:\n");
 
+
    while(1){
      int timeSeconds = bcdToDec(buf[0]);
      char seconds[BUFFER_SIZE];
-     const char *sPtr;
+     char *sPtr;
 
      sprintf(seconds, "%d", bcdToDec(buf[0]));
      sPtr = seconds;
@@ -114,7 +115,7 @@ int main(){
         // move pointer
       } else{
         printf("Small\n");
-        printf(sPtr[0]);
+        printf("%c",*sPtr);
       }
 
       printf("%4d\r", i);
