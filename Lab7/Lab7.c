@@ -109,8 +109,8 @@ int main(){
    sprintf(secondsAsString, "%d", bcdToDec(buf[0]));
    printf("Seconds as a string is: %s\n", secondsAsString);
 
-   char str[] = secondsAsString;
-   char c = str[1];
+   char* str = secondsAsString;
+   char c[] = str[1];
    printf("c is: %s", c);
 
    close(file);
