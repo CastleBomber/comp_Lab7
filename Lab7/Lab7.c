@@ -104,18 +104,18 @@ int main(){
      sPtr = seconds;
 
      for (i=0; i<=9; i++){
-      // send, recieve data
-      if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
-         perror("Failed to update the display");
-         return -1;
-      }
+       // send, recieve data
+       if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
+          perror("Failed to update the display");
+          return -1;
+        }
 
-      if (timeSeconds >= 10){
-        printf("Big\n");
-        // move pointer
-      } else{
-        printf("Small\n");
-        printf("%c",*sPtr);
+        if (timeSeconds >= 10){
+          printf("Big\n");
+          // move pointer
+        } else{
+          printf("Small\n");
+          printf("%c",*sPtr);
       }
 
       printf("%4d\r", i);
