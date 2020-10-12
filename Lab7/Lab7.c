@@ -96,14 +96,13 @@ int main(){
       if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
          perror("Failed to update the display");
          return -1;
-
-
+      }
       printf("%4d\r", bcdToDec(buf[2]));
       //printf("%4d\r", i);
       fflush(stdout);       // need to flush the output, no \n
       usleep(500000);       // sleep for 500ms each loop
    }
-
+   
    close(fd);               // close the file
    return 0;
 }
