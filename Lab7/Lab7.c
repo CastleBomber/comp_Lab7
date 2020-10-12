@@ -118,7 +118,7 @@ int main(){
       }
   }
 
-   close(file);
+   close(file); // :)
    close(fd);               // close the file
    return 0;
 }
