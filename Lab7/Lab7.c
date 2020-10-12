@@ -108,7 +108,7 @@ int main(){
    printf("The bcdToDec at buff 0 is: %02d\n", bcdToDec(buf[0]));
    // Convert dec to string
    char secondsAsString[5];
-   itoa(bcdToDec(buf[2]), secondsAsString, 10)
+   itoa(bcdToDec(buf[2]), secondsAsString, 10);
    printf("The digit value is: %s\n", secondsAsString);
    close(file);
    close(fd);               // close the file
