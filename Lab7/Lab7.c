@@ -105,7 +105,7 @@ int main(){
    printf("Counting now:\n");
 
    while(1){
-     for (i=0; i<=9; i++){
+     for (i=bcdToDec(buf[0]); i<=9; i++){
       // send, recieve data
       if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
          perror("Failed to update the display");
@@ -114,7 +114,7 @@ int main(){
 
       printf("%4d\r", i);
       fflush(stdout);       // flush output
-      usleep(500000);
+      usleep(1000000);
       }
   }
 
