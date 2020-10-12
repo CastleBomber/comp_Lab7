@@ -106,8 +106,10 @@ int main(){
    printf("The RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
          bcdToDec(buf[1]), bcdToDec(buf[0]));
    printf("The bcdToDec at buff 0 is: %02d\n", bcdToDec(buf[0]));
-   printf("The bcdToDec at buff 0 is: %01d\n", bcdToDec(buf[0]));
-   printf("The bcdToDec at buff 0 is: %0d\n", bcdToDec(buf[0]));
+   // Convert dec to string
+   char secondsAsString[5];
+   string secondDigitFromSeconds = itoa(bcdToDec(buf[2]), secondsAsString, 10)
+   printf("The digit value is: %s\n", secondDigitFromSeconds);
    close(file);
    close(fd);               // close the file
    return 0;
