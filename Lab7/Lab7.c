@@ -109,16 +109,15 @@ int main(){
                                           bcdToDec(buf[1]),
                                           bcdToDec(buf[0]));
 
-   char secondsAsString[5];
+   char secondsAsString[];
    sprintf(secondsAsString, "%d", bcdToDec(buf[0]));
 
    if ((bcdToDec(buf[0])) >= 10){
-     printf("Big");
+     printf("Big\n");
+     // printf(#)
    } else{
      printf("Small");
    }
-   
-   printf("Seconds as a string is: %s\n", secondsAsString);
 
    close(file);
    close(fd);               // close the file
