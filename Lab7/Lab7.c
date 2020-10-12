@@ -105,8 +105,7 @@ int main(){
 
    printf("The RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
          bcdToDec(buf[1]), bcdToDec(buf[0]));
-   float temperature = buf[0x11] + ((buf[0x12]>>6)*0.25);
-   printf("The temperature is %.2f°C\n", temperature);
+   printf("The bcdToDec at buff 2 is: d\n", bcdToDec(buf[2]));
    close(file);
    close(fd);               // close the file
    return 0;
