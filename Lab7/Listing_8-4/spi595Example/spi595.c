@@ -1,4 +1,4 @@
- 
+
 /**  SPI C Seven-Segment Display Example, Written by Derek Molloy (www.derekmolloy.ie)
 *    for the book Exploring Raspberry Pi. Based on the spidev_test.c code
 *    example at www.kernel.org  */
@@ -29,10 +29,10 @@ int transfer(int fd, unsigned char send[], unsigned char rec[], int len){
    transfer.speed_hz = 1000000;             //the speed in Hz
    transfer.bits_per_word = 8;              //bits per word
    transfer.delay_usecs = 0;                //delay in us
-   // transfer.cs_change = 0;       // affects chip select after transfer
-   // transfer.tx_nbits = 0;        // no. bits for writing (default 0)
-   // transfer.rx_nbits = 0;        // no. bits for reading (default 0)
-   // transfer.pad = 0;             // interbyte delay - check version
+   transfer.cs_change = 0;       // affects chip select after transfer
+   transfer.tx_nbits = 0;        // no. bits for writing (default 0)
+   transfer.rx_nbits = 0;        // no. bits for reading (default 0)
+   transfer.pad = 0;             // interbyte delay - check version
 
    // send the SPI message (all of the above fields, inc. buffers)
    int status = ioctl(fd, SPI_IOC_MESSAGE(1), &transfer);
@@ -77,4 +77,3 @@ int main(){
    close(fd);               // close the file
    return 0;
 }
-
