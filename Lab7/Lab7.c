@@ -114,7 +114,7 @@ int main(){
         // move pointer
       } else{
         printf("Small\n");
-        puts(sPtr[0]);
+        printf(sPtr[0]);
       }
 
       printf("%4d\r", i);
