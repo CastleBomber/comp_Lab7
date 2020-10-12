@@ -98,7 +98,7 @@ int main(){
          return -1;
 
 
-      printf("%4d\r", bcdToDec(buf[2]))
+      printf("%4d\r", bcdToDec(buf[2]));
       //printf("%4d\r", i);
       fflush(stdout);       // need to flush the output, no \n
       usleep(500000);       // sleep for 500ms each loop
