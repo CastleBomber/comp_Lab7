@@ -106,8 +106,8 @@ int main(){
    printf("The RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
          bcdToDec(buf[1]), bcdToDec(buf[0]));
    char secondsAsString[5];
-   sprintf(secondsAsString, "%d", bcdToDec(buf[2]));
-   printf("The digit value is: %s\n", secondsAsString);
+   sprintf(secondsAsString, "%d", bcdToDec(buf[0]));
+   printf("The digit value is: %s\n", secondsAsString[1]);
 
    close(file);
    close(fd);               // close the file
