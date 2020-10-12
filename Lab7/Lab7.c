@@ -107,7 +107,10 @@ int main(){
          bcdToDec(buf[1]), bcdToDec(buf[0]));
    char secondsAsString[5];
    sprintf(secondsAsString, "%d", bcdToDec(buf[0]));
-   printf("The digit value is: %s\n", secondsAsString[1]);
+   printf("The digit value is: %s\n", secondsAsString);
+   char lastDigitFromSeconds[5];
+   lastDigitFromSeconds = secondsAsString[1];
+   printf("Test: %s\n", lastDigitFromSeconds);
 
    close(file);
    close(fd);               // close the file
