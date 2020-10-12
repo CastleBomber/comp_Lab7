@@ -2,7 +2,7 @@
 *    COMP 462
 *    Editor: Richie Romero CastleBomber
 */
-
+#include<stdlib.h>
 #include<stdio.h>
 #include<fcntl.h>
 #include<unistd.h>
