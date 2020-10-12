@@ -113,7 +113,6 @@ int main(){
    char c = str[1];
    printf("c is: %s", c);
 
-
    close(file);
    close(fd);               // close the file
    return 0;
