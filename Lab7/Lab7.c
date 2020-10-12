@@ -105,11 +105,11 @@ int main(){
 
    printf("The RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
          bcdToDec(buf[1]), bcdToDec(buf[0]));
-   char secondsAsString[2];
+   char secondsAsString[5];
    sprintf(secondsAsString, "%d", bcdToDec(buf[0]));
    printf("Seconds as a string is: %s\n", secondsAsString);
 
-   char* str = secondsAsString;
+   char str[] = secondsAsString;
    char c = str[1];
    printf("c is: %s", c);
 
