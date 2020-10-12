@@ -105,7 +105,9 @@ int main(){
 
    printf("The RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
          bcdToDec(buf[1]), bcdToDec(buf[0]));
-   printf("The bcdToDec at buff 2 is: d\n", bcdToDec(buf[2]));
+   printf("The bcdToDec at buff 2 is: %02d\n", bcdToDec(buf[2]));
+   printf("The bcdToDec at buff 1 is: %02d\n", bcdToDec(buf[1]));
+   printf("The bcdToDec at buff 0 is: %02d\n", bcdToDec(buf[0]));
    close(file);
    close(fd);               // close the file
    return 0;
