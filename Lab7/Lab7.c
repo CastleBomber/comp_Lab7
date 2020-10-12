@@ -97,7 +97,7 @@ int main(){
    while(1){
      int timeSeconds = bcdToDec(buf[0]);
      char seconds[BUFFER_SIZE];
-     char *sPtr;
+     const char *sPtr;
 
      sprintf(seconds, "%d", bcdToDec(buf[0]));
      sPtr = seconds;
