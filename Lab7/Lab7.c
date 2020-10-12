@@ -104,7 +104,7 @@ int main(){
    printf("SPI Mode is: %d\n", mode);
    printf("Counting now:\n");
 
-   while(True){
+   while(1){
      for (i=0; i<=9; i++){
       // send, recieve data
       if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
