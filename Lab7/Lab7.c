@@ -98,14 +98,14 @@ int main(){
      printf("Big\n");
      // printf(#)
    } else{
-     printf("Small");
+     printf("Small\n");
    }
 
    printf("SPI Mode is: %d\n", mode);
    printf("Counting now:\n");
 
-   for (i=0; i<=15; i++)
-   {
+   while(True){
+     for (i=0; i<=9; i++){
       // send, recieve data
       if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
          perror("Failed to update the display");
@@ -115,7 +115,8 @@ int main(){
       printf("%4d\r", i);
       fflush(stdout);       // flush output
       usleep(500000);
-   }
+      }
+  }
 
    close(file);
    close(fd);               // close the file
