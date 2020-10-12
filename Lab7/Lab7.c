@@ -53,7 +53,6 @@ int main(){
    uint8_t mode = 3;                       // SPI mode 3
    int file;
 
-   //[8.1]
    printf("Starting the DS3231 test application\n");
    if((file=open("/dev/i2c-1", O_RDWR)) < 0){
       perror("failed to open the bus\n");
@@ -74,7 +73,6 @@ int main(){
       return 1;
    }
 
-   //[8.4]
    // Call SPI bus properties
    if ((fd = open(SPI_PATH, O_RDWR))<0){
       perror("SPI Error: Can't open device.");
@@ -88,10 +86,24 @@ int main(){
       perror("SPI: Can't get SPI mode.");
       return -1;
    }
-   printf("SPI Mode is: %d\n", mode);
-   printf("Counting in hexadecimal from 0 to F now:\n");
 
-   // [8.4] SPI
+   printf("RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
+                                          bcdToDec(buf[1]),
+                                          bcdToDec(buf[0]));
+
+   char secondsAsString[BUFFER_SIZE];
+   sprintf(secondsAsString, "%d", bcdToDec(buf[0]));
+
+   if ((bcdToDec(buf[0])) >= 10){
+     printf("Big\n");
+     // printf(#)
+   } else{
+     printf("Small");
+   }
+
+   printf("SPI Mode is: %d\n", mode);
+   printf("Counting now:\n");
+
    for (i=0; i<=15; i++)
    {
       // send, recieve data
@@ -103,20 +115,6 @@ int main(){
       printf("%4d\r", i);
       fflush(stdout);       // flush output
       usleep(500000);
-   }
-
-   printf("RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
-                                          bcdToDec(buf[1]),
-                                          bcdToDec(buf[0]));
-
-   char secondsAsString[];
-   sprintf(secondsAsString, "%d", bcdToDec(buf[0]));
-
-   if ((bcdToDec(buf[0])) >= 10){
-     printf("Big\n");
-     // printf(#)
-   } else{
-     printf("Small");
    }
 
    close(file);
