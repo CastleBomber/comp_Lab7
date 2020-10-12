@@ -91,25 +91,30 @@ int main(){
                                           bcdToDec(buf[1]),
                                           bcdToDec(buf[0]));
 
-   char secondsAsString[BUFFER_SIZE];
-   sprintf(secondsAsString, "%d", bcdToDec(buf[0]));
-
-   if ((bcdToDec(buf[0])) >= 10){
-     printf("Big\n");
-     // printf(#)
-   } else{
-     printf("Small\n");
-   }
-
    printf("SPI Mode is: %d\n", mode);
-   printf("Counting now:\n");
+   printf("Time's last digit:\n");
 
    while(1){
-     for (i=bcdToDec(buf[0]); i<=9; i++){
+     int timeSeconds = bcdToDec(buf[0]);
+     char seconds[BUFFER_SIZE];
+     char *sPtr;
+
+     sprintf(seconds, "%d", bcdToDec(buf[0]));
+     sPtr = seconds;
+
+     for (i=0; i<=9; i++){
       // send, recieve data
       if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
          perror("Failed to update the display");
          return -1;
+      }
+
+      if (timeSeconds >= 10){
+        printf("Big\n");
+        // move pointer
+      } else{
+        printf("Small\n");
+        puts(sPtr[0]);
       }
 
       printf("%4d\r", i);
