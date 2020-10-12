@@ -97,12 +97,17 @@ int main(){
          perror("Failed to update the display");
          return -1;
       }
-      printf("%4d\r", bcdToDec(buf[2]));
-      //printf("%4d\r", i);
+      //printf("%4d\r", bcdToDec(buf[2]));
+      printf("%4d\r", i);
       fflush(stdout);       // need to flush the output, no \n
       usleep(500000);       // sleep for 500ms each loop
    }
-   
+
+   printf("The RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
+         bcdToDec(buf[1]), bcdToDec(buf[0]));
+   float temperature = buf[0x11] + ((buf[0x12]>>6)*0.25);
+   printf("The temperature is %.2f°C\n", temperature);
+   close(file);
    close(fd);               // close the file
    return 0;
 }
