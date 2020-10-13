@@ -99,9 +99,10 @@ int main(){
      int timeSeconds = bcdToDec(buf[0]);
      char seconds[BUFFER_SIZE];
      char *sPtr;
-
      sprintf(seconds, "%d", bcdToDec(buf[0]));
      sPtr = seconds;
+     printf("This is what sPtr[0] points to: %c",&sPtr[0]);
+     printf("This is what sPtr[1] points to: %c",&sPtr[1]);
 
      for (i=0; i<=9; i++){
        // send, recieve data
@@ -111,12 +112,12 @@ int main(){
         }
 
         if (timeSeconds >= 10){
-          printf("Big: %c",&sPtr[0]);
+          //printf("Big: %c",&sPtr[0]);
         } else{
-          printf("Small: %c",&sPtr[0]);
+          //printf("Small: %c",&sPtr[0]);
       }
 
-      printf("??: %4d\r", i);
+      printf("%4d\r", i);
       fflush(stdout);       // flush output
       usleep(1000000);
       }
