@@ -91,9 +91,7 @@ int main(){
                                           bcdToDec(buf[1]),
                                           bcdToDec(buf[0]));
 
-   printf("SPI Mode is: %d\n", mode);
    printf("Time's last digit:\n");
-
 
    while(1){
      int timeSeconds = bcdToDec(buf[0]);
@@ -101,8 +99,9 @@ int main(){
      char *sPtr;
      sprintf(seconds, "%d", bcdToDec(buf[0]));
      sPtr = seconds;
-     printf("This is what sPtr[0] points to: %c",&sPtr[0]);
-     printf("This is what sPtr[1] points to: %c",&sPtr[1]);
+     printf("This is what sPtr[0] points to: %c\n",&sPtr[0]);
+     printf("This is what sPtr[1] points to: %c\n",&sPtr[1]);
+     pritnf("skipped\n");
 
      for (i=0; i<=9; i++){
        // send, recieve data
