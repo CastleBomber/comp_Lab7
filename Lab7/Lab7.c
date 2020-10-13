@@ -104,7 +104,7 @@ int main(){
      if (timeSeconds >= 10){
        sPtr++;
      }
-     printf("Problems: %c", *sPtr);
+     //printf("Problems: %c", *sPtr);
 
      int start = *sPtr;
      for (i=start; i<=9; i++){
