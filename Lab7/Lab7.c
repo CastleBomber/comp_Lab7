@@ -98,10 +98,10 @@ int main(){
      char seconds[BUFFER_SIZE];
      char *sPtr;
      sprintf(seconds, "%d", bcdToDec(buf[0]));
+     printf("Second: %s", seconds);
      sPtr = seconds;
-     printf("This is what sPtr[0] points to: %c\n",&sPtr[0]);
-     printf("This is what sPtr[1] points to: %c\n",&sPtr[1]);
-     printf("skipped\n");
+     printf("This is what sPtr[0] points to: %c\n",*sPtr);
+     printf("This is what sPtr[1] points to: %c\n",*sPtr);
 
      for (i=0; i<=9; i++){
        // send, recieve data
