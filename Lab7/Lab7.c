@@ -101,7 +101,7 @@ int main(){
      printf("Second: %s", seconds);
      sPtr = seconds;
      printf("This is what sPtr[0] points to: %c\n",*sPtr);
-     printf("This is what sPtr[1] points to: %c\n",*sPtr++);
+     printf("This is what sPtr[1] points to: %c\n",sPtr++);
 
      for (i=0; i<=9; i++){
        // send, recieve data
