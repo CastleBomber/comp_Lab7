@@ -105,7 +105,8 @@ int main(){
        sPtr++;
      }
 
-     for (i=*sPtr; i<=9; i++){
+     int start = *sPtr;
+     for (i=start; i<=9; i++){
        // send, recieve data
        if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
           perror("Failed to update the display");
