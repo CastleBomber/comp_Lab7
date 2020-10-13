@@ -112,13 +112,13 @@ int main(){
 
         if (timeSeconds >= 10){
           puts("Big\n");
-          printf("%c",*sPtr.next());
+          //printf("%c",&sPtr.next());
         } else{
           puts("Small\n");
-          printf("%c",*sPtr);
+          printf("%c",&sPtr[0]);
       }
 
-      printf("%4d\r", i);
+      printf("??: %4d\r", i);
       fflush(stdout);       // flush output
       usleep(1000000);
       }
