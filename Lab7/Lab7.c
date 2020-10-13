@@ -114,11 +114,11 @@ int main(){
         if (timeSeconds >= 10){
           //printf("Big: %c",&sPtr[0]);
         } else{
-          //printf("Small: %c",&sPtr[0]);
+          // printf("Small: %c",&sPtr[0]);
       }
 
       printf("%4d\r", i);
-      fflush(stdout);       // flush output
+      //fflush(stdout);       // flush output
       usleep(1000000);
       }
   }
