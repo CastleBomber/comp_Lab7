@@ -105,8 +105,7 @@ int main(){
        sPtr++;
      }
      printf("Problems: %c", *sPtr);
-     char tmp = *sPtr;
-     int start = atoi(tmp);
+     int start = int(*sPtr);
      for (i=start; i<=9; i++){
        // send, recieve data
        if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
