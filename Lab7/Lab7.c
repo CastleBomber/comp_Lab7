@@ -111,10 +111,10 @@ int main(){
         }
 
         if (timeSeconds >= 10){
-          printf("Big\n");
+          puts("Big\n");
           // move pointer
         } else{
-          printf("Small\n");
+          puts("Small\n");
           printf("%c",*sPtr);
       }
 
