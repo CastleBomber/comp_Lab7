@@ -104,9 +104,9 @@ int main(){
      if (timeSeconds >= 10){
        sPtr++;
      }
-     //printf("Problems: %c", *sPtr);
+     printf("Problems: %c", *sPtr);
 
-     int start = *sPtr;
+     int start = atoi(*sPtr);
      for (i=start; i<=9; i++){
        // send, recieve data
        if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
