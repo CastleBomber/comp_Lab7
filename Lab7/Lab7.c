@@ -111,11 +111,9 @@ int main(){
         }
 
         if (timeSeconds >= 10){
-          puts("Big\n");
-          //printf("%c",&sPtr.next());
+          printf("Big: %c",&sPtr[0]);
         } else{
-          puts("Small\n");
-          printf("%c",&sPtr[0]);
+          printf("Small: %c",&sPtr[0]);
       }
 
       printf("??: %4d\r", i);
