@@ -108,6 +108,8 @@ int main(){
      long start;
      start = strtol(seconds, &sPtr, 10);
      printf("Start: %ld\n", start);
+     printf("Start[0]: %ld\n", start[0]);
+     printf("Start[1]: %ld\n", start[1]);
 
      for (i=start; i<=9; i++){
        // send, recieve data
@@ -127,6 +129,7 @@ int main(){
       //fflush(stdout);       // flush output
       usleep(1000000);
       }
+      usleep(99999999);
   }
 
    close(file); // :)
