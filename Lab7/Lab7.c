@@ -105,8 +105,10 @@ int main(){
        sPtr++;
      }
      printf("Problems: %c", *sPtr);
-     int start = int(sPtr);
-     
+     long start;
+     start = strtol(str, &sPtr, 10);
+     printf("Start: %ld\n", start);
+
      for (i=start; i<=9; i++){
        // send, recieve data
        if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
