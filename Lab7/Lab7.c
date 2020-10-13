@@ -112,7 +112,7 @@ int main(){
 
         if (timeSeconds >= 10){
           puts("Big\n");
-          // move pointer
+          printf("%c",*sPtr.next());
         } else{
           puts("Small\n");
           printf("%c",*sPtr);
