@@ -98,14 +98,14 @@ int main(){
      char seconds[BUFFER_SIZE];
      char *sPtr;
      sprintf(seconds, "%d", bcdToDec(buf[0]));
-     printf("Seconds: %s\n", seconds);
      sPtr = seconds;
-     printf("This is what sPtr[0] points to: %c\n",*sPtr);
-     sPtr++;
-     printf("This is what sPtr[1] points to: %c\n",*sPtr);
 
+     // need make sure we start at 1st digit
+     if (timeSeconds >= 10){
+       sPtr++;
+     }
 
-     for (i=0; i<=9; i++){
+     for (i=*sPtr; i<=9; i++){
        // send, recieve data
        if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
           perror("Failed to update the display");
@@ -113,10 +113,11 @@ int main(){
         }
 
         if (timeSeconds >= 10){
-          //printf("Big: %c",&sPtr[0]);
+          sPtr++;
+          printf("Big: %c",*sPtr);
         } else{
-          // printf("Small: %c",&sPtr[0]);
-      }
+          printf("Small: %c",*sPtr);
+        }
 
       printf("%4d\r", i);
       //fflush(stdout);       // flush output
