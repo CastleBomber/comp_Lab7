@@ -106,7 +106,7 @@ int main(){
      }
      printf("Problems: %c", *sPtr);
      long start;
-     start = strtol(str, &sPtr, 10);
+     start = strtol(seconds, &sPtr, 10);
      printf("Start: %ld\n", start);
 
      for (i=start; i<=9; i++){
