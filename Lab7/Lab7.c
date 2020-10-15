@@ -93,6 +93,8 @@ int main(){
 
    while(1){
      int timeSeconds = bcdToDec(buf[0]);
+     char seconds[BUFFER_SIZE];
+     sprintf(seconds, "%d", bcdToDec(buf[0]));
      int start = 0;
 
      // need make sure we start at 1st digit
@@ -110,9 +112,8 @@ int main(){
           return -1;
         }
 
-      //printf("%4d\r", i);
+      printf("%4d\r", i);
       //fflush(stdout);       // flush output
-
       usleep(1000000);
       }
 
