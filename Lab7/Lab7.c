@@ -53,45 +53,47 @@ int main(){
    uint8_t mode = 3;                       // SPI mode 3
    int file;
 
-   printf("Starting the DS3231 test application\n");
-   if((file=open("/dev/i2c-1", O_RDWR)) < 0){
-      perror("failed to open the bus\n");
-      return 1;
-   }
-   if(ioctl(file, I2C_SLAVE, 0x68) < 0){
-      perror("Failed to connect to the sensor\n");
-      return 1;
-   }
-   char writeBuffer[1] = {0x00};
-   if(write(file, writeBuffer, 1)!=1){
-      perror("Failed to reset the read address\n");
-      return 1;
-   }
-   char buf[BUFFER_SIZE];
-   if(read(file, buf, BUFFER_SIZE)!=BUFFER_SIZE){
-      perror("Failed to read in the buffer\n");
-      return 1;
-   }
+   while(1){
 
-   // Call SPI bus properties
-   if ((fd = open(SPI_PATH, O_RDWR))<0){
-      perror("SPI Error: Can't open device.");
-      return -1;
-   }
-   if (ioctl(fd, SPI_IOC_WR_MODE, &mode)==-1){
-      perror("SPI: Can't set SPI mode.");
-      return -1;
-   }
-   if (ioctl(fd, SPI_IOC_RD_MODE, &mode)==-1){
-      perror("SPI: Can't get SPI mode.");
-      return -1;
-   }
+     printf("Starting the DS3231 test application\n");
+     if((file=open("/dev/i2c-1", O_RDWR)) < 0){
+       perror("failed to open the bus\n");
+       return 1;
+     }
+     if(ioctl(file, I2C_SLAVE, 0x68) < 0){
+       perror("Failed to connect to the sensor\n");
+       return 1;
+     }
+     char writeBuffer[1] = {0x00};
+     if(write(file, writeBuffer, 1)!=1){
+       perror("Failed to reset the read address\n");
+       return 1;
+     }
+     char buf[BUFFER_SIZE];
+     if(read(file, buf, BUFFER_SIZE)!=BUFFER_SIZE){
+       perror("Failed to read in the buffer\n");
+       return 1;
+     }
 
-   printf("RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
+     // Call SPI bus properties
+     if ((fd = open(SPI_PATH, O_RDWR))<0){
+       perror("SPI Error: Can't open device.");
+       return -1;
+     }
+     if (ioctl(fd, SPI_IOC_WR_MODE, &mode)==-1){
+       perror("SPI: Can't set SPI mode.");
+       return -1;
+     }
+     if (ioctl(fd, SPI_IOC_RD_MODE, &mode)==-1){
+       perror("SPI: Can't get SPI mode.");
+       return -1;
+     }
+
+     printf("RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
                                           bcdToDec(buf[1]),
                                           bcdToDec(buf[0]));
 
-   while(1){
+
      int timeSeconds = bcdToDec(buf[0]);
      char seconds[BUFFER_SIZE];
      sprintf(seconds, "%d", bcdToDec(buf[0]));
