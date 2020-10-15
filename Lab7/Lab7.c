@@ -96,21 +96,18 @@ int main(){
    while(1){
      int timeSeconds = bcdToDec(buf[0]);
      char seconds[BUFFER_SIZE];
-     char *Ptr;
-     int p*
      sprintf(seconds, "%d", bcdToDec(buf[0]));
-     Ptr = seconds;
+     int start = 0;
 
      // need make sure we start at 1st digit
      if (timeSeconds >= 10){
-       Ptr++;
-       p = *ptr;
+        start = timeSeconds - 10;
      }
-     printf("Problems: %c", *Ptr);
-     rintf("Problems: %d", *p);
-     //need *sPtr to be an int
+     start = timeSeconds;
 
-     for (i=p; i<=9; i++){
+     printf("Starting at start: %d", start);
+
+     for (i=start; i<=9; i++){
        // send, recieve data
        if (transfer(fd, (unsigned char*) &symbols[i], &null, 1)==-1){
           perror("Failed to update the display");
@@ -118,10 +115,7 @@ int main(){
         }
 
         if (timeSeconds >= 10){
-          sPtr++;
-          printf("Big: %c",*Ptr);
         } else{
-          printf("Small: %c",*Ptr);
         }
 
       printf("%4d\r", i);
