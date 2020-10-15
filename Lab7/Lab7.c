@@ -100,7 +100,7 @@ int main(){
      int start = 0;
 
      // need make sure we start at 1st digit
-     if (timeSeconds >= 10){
+     while(timeSeconds >= 10) {
         start = timeSeconds - 10;
      }
      start = timeSeconds;
