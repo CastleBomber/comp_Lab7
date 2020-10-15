@@ -93,8 +93,6 @@ int main(){
 
    while(1){
      int timeSeconds = bcdToDec(buf[0]);
-     char seconds[BUFFER_SIZE];
-     sprintf(seconds, "%d", bcdToDec(buf[0]));
      int start = 0;
 
      // need make sure we start at 1st digit
@@ -114,9 +112,7 @@ int main(){
 
       //printf("%4d\r", i);
       //fflush(stdout);       // flush output
-      printf("RTC time is %02d:%02d:%02d\n", bcdToDec(buf[2]),
-                                             bcdToDec(buf[1]),
-                                             bcdToDec(buf[0]));
+
       usleep(1000000);
       }
 
