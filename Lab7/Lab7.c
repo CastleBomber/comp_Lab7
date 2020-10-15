@@ -114,15 +114,11 @@ int main(){
           return -1;
         }
 
-        if (timeSeconds >= 10){
-        } else{
-        }
-
       printf("%4d\r", i);
       //fflush(stdout);       // flush output
       usleep(1000000);
       }
-      usleep(99999999);
+
   }
 
    close(file); // :)
