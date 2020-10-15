@@ -101,7 +101,7 @@ int main(){
 
      // need make sure we start at 1st digit
      while(timeSeconds >= 10) {
-        start = timeSeconds - 10;
+        timeSeconds = timeSeconds - 10;
      }
      start = timeSeconds;
 
